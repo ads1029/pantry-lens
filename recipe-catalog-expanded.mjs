@@ -1,7 +1,7 @@
 import {RecipeError} from './recipe-error.mjs';
 import {ingredientName, ingredientLimit} from './recipe-ingredients.mjs';
 
-export const recipeLibraryVersion = 'home-20261102-v1';
+export const recipeLibraryVersion = 'home-20261104-v2';
 const stapleNames = new Set(['食用油', '盐', '水']);
 // Original household recipes, written for this project. Amounts are for two people.
 const R = (id, title, required, minutes, ingredients, steps, tips = '三道菜是备选方案，任选一道即可。') => ({id, title, required, minutes, ingredients, steps, tips});
@@ -31,6 +31,35 @@ export const recipeLibrary = [
   R('v02', '胡萝卜土豆汤', ['土豆', '胡萝卜'], 28, [['土豆', 250, '克'], ['胡萝卜', 200, '克'], ['水', 800, '毫升'], ['盐', 1, '克']], ['土豆去皮、胡萝卜洗净，均切成约1厘米小块。', '与水一起入锅煮开，转中小火煮约18–20分钟。', '检查两种蔬菜都能轻松用筷子穿透，加盐调味。']),
   R('v03', '清蒸西兰花', ['西兰花'], 15, [['西兰花', 350, '克'], ['盐', 1, '克'], ['食用油', 3, '毫升']], ['西兰花切成大小相近的小朵，充分洗净沥水。', '蒸锅水开后放入，中火蒸约6–8分钟至花梗熟软。', '加盐和油拌匀；若喜欢更软口感，可适当延长蒸制。']),
 ];
+
+// Household combinations: each entry has two required main ingredients and a distinct cooking method.
+const vegetables = [
+  ['生菜', '逐叶洗净、撕成片', 2], ['油麦菜', '逐叶洗净切段，菜梗与叶分开', 3],
+  ['小白菜', '逐叶洗净切段，菜梗与叶分开', 3], ['白菜', '洗净切片，菜帮与叶分开', 5],
+  ['菠菜', '去根洗净，沸水焯1分钟后捞出', 2], ['西兰花', '切小朵、充分洗净，粗梗切薄片', 5],
+  ['番茄', '洗净去蒂、切小块', 5], ['土豆', '去皮洗净切约2毫米薄片；发绿、发芽或异常发苦的不用', 10],
+  ['胡萝卜', '洗净切约2毫米薄片', 8], ['黄瓜', '洗净切片', 3],
+  ['青椒', '洗净去蒂去籽切条', 4], ['洋葱', '去皮洗净切丝', 5],
+  ['香菇', '使用鲜香菇，去老蒂洗净切薄片', 6], ['金针菇', '去根、拆散洗净，彻底加热后再食用', 6],
+];
+for (const [vi, [vegetable, prepare, cook]] of vegetables.entries()) {
+  const veg = [vegetable, 300, '克'];
+  recipeLibrary.push(
+    R(`veg-${vi}-fry`, `少油炒${vegetable}`, [vegetable], 20, [veg, ['食用油', 5, '毫升'], ['水', 60, '毫升'], ['盐', 1, '克']], [`${vegetable}${prepare}。`, `中火热锅放油，加入蔬菜翻炒，加水后继续炒煮约${cook + 2}分钟；梗和根茎先下锅。`, '确认蔬菜完全熟软、没有生硬芯，加盐拌匀；时间不足则继续加热。']),
+    R(`veg-${vi}-soup`, `${vegetable}清汤`, [vegetable], 22, [veg, ['水', 600, '毫升'], ['盐', 1, '克']], [`${vegetable}${prepare}，清水入锅烧开。`, `放入蔬菜，保持微沸煮约${cook + 2}分钟；菜梗或根茎先煮。`, '确认蔬菜完全熟软后放盐，连汤盛出；未熟则继续煮。']),
+    R(`veg-${vi}-steam`, `原味蒸${vegetable}`, [vegetable], 25, [veg, ['食用油', 3, '毫升'], ['盐', 1, '克']], [`${vegetable}${prepare}，拌油、盐，平铺在耐热浅盘中。`, `蒸锅水开后放入，中火蒸约${cook + 4}分钟，检查最厚处熟软。`, '有生硬芯时继续蒸，用隔热工具取出，避免热汽烫伤。'])
+  );
+  for (const [mi, meat] of ['鸡肉', '猪肉', '牛肉'].entries()) {
+    const meatCut = meat === '牛肉' ? '逆纹切约3毫米薄片' : '切约3–5毫米薄片';
+    const ingredients = [[meat, 200, '克'], [vegetable, 250, '克']];
+    const tip = '按全熟口感制作；肉片最厚处中心达到75℃。三道为备选，每次任选一道，用量按单道计算。';
+    recipeLibrary.push(
+      R(`pair-${mi}-${vi}-fry`, `${vegetable}炒${meat}片`, [meat, vegetable], 25, [...ingredients, ['食用油', 5, '毫升'], ['水', 80, '毫升'], ['盐', 1, '克']], [`${meat}${meatCut}；${vegetable}${prepare}。生肉和蔬菜分开处理，清洁刀板与双手。`, `锅内放油，中火将肉片炒约5–7分钟至最厚处中心75℃，盛入干净盘。下蔬菜和水，炒煮约${cook + 2}分钟至完全熟软。`, '放回熟肉片，加盐翻炒1–2分钟使整锅重新热透。未熟的肉或蔬菜继续加热。'], tip),
+      R(`pair-${mi}-${vi}-soup`, `${vegetable}${meat}汤`, [meat, vegetable], 28, [...ingredients, ['水', 700, '毫升'], ['盐', 1, '克']], [`${meat}${meatCut}；${vegetable}${prepare}，生熟用具分开。`, `水烧开，先下蔬菜煮约${cook}分钟，再下肉片拨散，保持沸腾煮约5–8分钟。`, '检查肉片最厚处中心达到75℃、蔬菜完全熟软，未达到时继续煮，最后放盐。'], tip),
+      R(`pair-${mi}-${vi}-steam`, `${vegetable}蒸${meat}片`, [meat, vegetable], 30, [...ingredients, ['食用油', 3, '毫升'], ['水', 30, '毫升'], ['盐', 1, '克']], [`${vegetable}${prepare}，先沸水煮约${cook}分钟至熟软，沥水放入耐热浅盘。${meat}${meatCut}，另用生肉刀板。`, '肉片拌油、盐和30毫升水，薄薄铺在熟蔬菜上，避免重叠堆厚；蒸锅水开后放入，中火蒸约10–15分钟。', '用食品温度计检查最厚肉片中心达到75℃，不足则继续蒸。使用隔热工具取出，注意热汽。'], tip)
+    );
+  }
+}
 
 const allergyGroups = [
   [/海鲜|水产/, ['鱼肉', '虾', '蚝油']], [/蛋类|鸡蛋|蛋白|蛋黄|蛋过敏/, ['鸡蛋']], [/大豆|豆制品|豆类/, ['豆腐', '生抽', '蚝油']], [/麸质|小麦/, ['面条', '面粉', '生抽', '蚝油']], [/芝麻/, ['芝麻油']], [/蒜/, ['蒜蓉']], [/姜/, ['姜蓉']], [/红肉/, ['猪肉', '牛肉']],
