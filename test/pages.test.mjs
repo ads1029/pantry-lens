@@ -7,6 +7,43 @@ import {recipeInput, validateRecipeResult} from '../src/recipes.js';
 import {matchLocalRecipes} from '../src/static-recipes.js';
 import {buildPages, publicFiles} from '../scripts/build-pages.mjs';
 import {ingredientGroups} from '../src/ingredient-presets.js';
+import {recipeLibrary, catalogCandidates} from '../recipe-catalog-expanded.mjs';
+import {ingredientName} from '../recipe-ingredients.mjs';
+
+test('5000份菜谱的名称/编号唯一；新增搭配温和、少添加油盐，步骤与主食不缺失', () => {
+  assert.equal(recipeLibrary.length, 5000);
+  assert.equal(new Set(recipeLibrary.map(recipe => recipe.id)).size, 5000);
+  assert.equal(new Set(recipeLibrary.map(recipe => recipe.title)).size, 5000);
+  const added = recipeLibrary.filter(recipe => recipe.kind);
+  assert.equal(added.length, 4808);
+  assert.equal(new Set(added.map(recipe => JSON.stringify([recipe.ingredients,recipe.steps]))).size,4808);
+  assert.equal(added.filter(recipe => recipe.cuisine === 'western').length, 2404);
+  for (const recipe of added) {
+    assert.equal(recipe.spice, 'mild');
+    assert.equal(recipe.steps.length, 4);
+    assert.equal(new Set(recipe.ingredients.map(([name]) => name)).size, recipe.ingredients.length);
+    assert.ok(!recipe.ingredients.some(([name]) => /辣椒|辣酱|黄油|奶油|糖/.test(name)));
+    assert.ok(recipe.ingredients.filter(([name]) => /油$/.test(name)).reduce((sum, [, amount]) => sum + amount, 0) <= 5);
+    assert.ok(recipe.ingredients.find(([name]) => name === '盐')[1] <= 0.8);
+    assert.ok(recipe.minutes >= 25 && recipe.minutes <= 45);
+  }
+});
+
+test('中式/西式偏好可筛选；主菜不因只换主食重复推荐，过敏与英文食材仍有效', () => {
+  const id = '00000000-0000-4000-8000-000000000001';
+  for (const p of ['鸡肉','猪肉','牛肉','鱼肉','虾','鸡蛋','豆腐','鹰嘴豆']) for (const v of ['西兰花','西葫芦','南瓜','茄子','四季豆','豌豆','玉米']) for (const cuisine of ['中式','西式']) {
+    const request = {ingredients:[p,v],servings:2,maxMinutes:45,preferences:cuisine+' 少油',avoid:'',requestId:id};
+    assert.equal(matchLocalRecipes(request).recipes.length,3,`${p}+${v}+${cuisine}`);
+    const candidates=catalogCandidates(request);
+    assert.ok(candidates.every(recipe => (recipe.cuisine ?? 'chinese') === (cuisine==='中式'?'chinese':'western')));
+    assert.equal(new Set(candidates.map(recipe=>recipe.family??recipe.id)).size,candidates.length);
+  }
+  const candidates=catalogCandidates({ingredients:['豆腐','鹰嘴豆','鸡蛋','西兰花'],servings:2,maxMinutes:45,preferences:'西式 纯素',avoid:'小麦、蒜、芝麻'});
+  assert.ok(candidates.length>=3);
+  assert.ok(candidates.every(recipe=>recipe.ingredients.every(([name])=>!['鸡蛋','面条','全麦意面','蒜蓉','芝麻油'].includes(name))));
+  assert.equal(ingredientName('Zucchini 300g'),'西葫芦');
+  assert.equal(ingredientName('Chickpeas 300g'),'鹰嘴豆');
+});
 
 test('三种肉类×14种蔬菜均能返回三道同时包含两种主料的菜，蔬菜单选也可匹配', () => {
   const vegetables = ingredientGroups.find(group => group.name === '蔬菜菌菇').items;
