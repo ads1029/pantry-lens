@@ -11,9 +11,9 @@ export async function buildPages(output = path.join(root, 'dist')) {
     .replaceAll('href="/', 'href="./').replaceAll('src="/', 'src="./')
     .replace('本机运行 · AI 联网', '浏览器内匹配 · 不调用 AI')
     .replace('id="pantry-tab"', 'id="pantry-tab" hidden disabled')
+    .replace('<nav class="view-switch"', '<nav class="view-switch" hidden')
     .replace('<option value="6">6 人</option>', '')
-    .replace('想吃什么口味 <span>选填</span>', '简单口味筛选 <span>选填</span>')
-    .replace('例如：清淡、少油、适合带饭', '例如：少油、素食、纯素')
+    .replace('清淡、少油、适合带饭', '少油、素食、纯素')
     .replace('AI 优先从家常菜谱库挑选三道，匹配不足时现场生成。食材与偏好会发送给模型，使用现有 Codex 账号额度。', '在线版从24道家常菜中本地匹配三道，不调用AI、不上传食材。支持1–4人和简单条件筛选；不会理解复杂口味指令。匹配不足时会提示，不会现场生成。')
     .replace('<script type="module" src="./src/app.js"></script>', '<script type="module" src="./src/static-shell.js"></script>');
   const start = html.indexOf('<div id="pantry-view" hidden>'), end = html.indexOf('</div><footer>', start);
