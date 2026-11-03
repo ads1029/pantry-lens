@@ -6,6 +6,23 @@ import path from 'node:path';
 import {recipeInput, validateRecipeResult} from '../src/recipes.js';
 import {matchLocalRecipes} from '../src/static-recipes.js';
 import {buildPages, publicFiles} from '../scripts/build-pages.mjs';
+import {ingredientGroups} from '../src/ingredient-presets.js';
+
+test('三种肉类×14种蔬菜均能返回三道同时包含两种主料的菜，蔬菜单选也可匹配', () => {
+  const vegetables = ingredientGroups.find(group => group.name === '蔬菜菌菇').items;
+  for (const meat of ['鸡肉', '猪肉', '牛肉']) for (const vegetable of vegetables) {
+    const request = {...recipeInput({ingredients: [meat, vegetable], servings: 2, maxMinutes: 30, preferences: '少油', avoid: '蒜、姜、芝麻过敏'}), requestId: '00000000-0000-4000-8000-000000000001'};
+    const result = matchLocalRecipes(request);
+    assert.equal(new Set(result.recipes.map(recipe => recipe.title)).size, 3);
+    for (const recipe of result.recipes) {
+      const names = recipe.ingredients.map(item => item.name);
+      assert.ok(names.includes(meat) && names.includes(vegetable), `${meat}+${vegetable}: ${recipe.title}`);
+      assert.ok(!names.some(name => ['蒜蓉', '姜蓉', '芝麻油'].includes(name)));
+      assert.ok(recipe.minutes <= 30 && recipe.steps.length >= 3);
+    }
+  }
+  for (const vegetable of vegetables) assert.equal(matchLocalRecipes({ingredients: [vegetable], servings: 1, maxMinutes: 30, preferences: '纯素', avoid: '', requestId: '00000000-0000-4000-8000-000000000001'}).recipes.length, 3);
+});
 
 test('静态匹配真实来源、三道完整结果及数量；不足三道或忌口不放宽，本机协议拒绝冒充', () => {
   const request = {...recipeInput({ingredients: '鸡肉200克、生菜、蒜蓉、姜蓉', servings: 2, maxMinutes: 30, preferences: '少油', avoid: '芝麻过敏'}), requestId: '00000000-0000-4000-8000-000000000001'};

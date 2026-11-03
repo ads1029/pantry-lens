@@ -3,7 +3,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-export const publicFiles = ['style.css', 'src/recipe-app.js', 'src/recipes.js', 'src/ingredient-presets.js', 'src/static-recipes.js', 'src/static-shell.js', 'recipe-catalog.mjs', 'recipe-ingredients.mjs', 'recipe-error.mjs'];
+export const publicFiles = ['style.css', 'src/recipe-app.js', 'src/recipes.js', 'src/ingredient-presets.js', 'src/static-recipes.js', 'src/static-shell.js', 'recipe-catalog-expanded.mjs', 'recipe-ingredients.mjs', 'recipe-error.mjs'];
 
 export async function buildPages(output = path.join(root, 'dist')) {
   let html = await readFile(path.join(root, 'index.html'), 'utf8');
@@ -14,7 +14,7 @@ export async function buildPages(output = path.join(root, 'dist')) {
     .replace('<nav class="view-switch"', '<nav class="view-switch" hidden')
     .replace('<option value="6">6 人</option>', '')
     .replace('清淡、少油、适合带饭', '少油、素食、纯素')
-    .replace('AI 优先从家常菜谱库挑选三道，匹配不足时现场生成。食材与偏好会发送给模型，使用现有 Codex 账号额度。', '在线版从24道家常菜中本地匹配三道，不调用AI、不上传食材。支持1–4人和简单条件筛选；不会理解复杂口味指令。匹配不足时会提示，不会现场生成。')
+    .replace('AI 优先从家常菜谱库挑选三道，匹配不足时现场生成。食材与偏好会发送给模型，使用现有 Codex 账号额度。', '在线版从192道家常菜中本地匹配三道，不调用AI、不上传食材。支持1–4人和简单条件筛选；不会理解复杂口味指令。匹配不足时会提示，不会现场生成。')
     .replace('<script type="module" src="./src/app.js"></script>', '<script type="module" src="./src/static-shell.js"></script>');
   const start = html.indexOf('<div id="pantry-view" hidden>'), end = html.indexOf('</div><footer>', start);
   if (start < 0 || end < 0 || !html.includes('data-recipe-mode="static"')) throw Error('静态页面模板不匹配，停止发布。');

@@ -6,7 +6,7 @@ import {RecipeError, MAX_RECIPE_BYTES} from './recipe-queue.mjs';
 import {recipePolicy, eventTelemetry, elapsed, restrictedRecipeConfig} from './recipe-telemetry.mjs';
 import {randomUUID} from 'node:crypto';
 import {ingredientName} from './recipe-ingredients.mjs';
-import {catalogProtocol} from './recipe-catalog.mjs';
+import {catalogProtocol} from './recipe-catalog-expanded.mjs';
 
 const object = properties => ({type: 'object', properties, required: Object.keys(properties), additionalProperties: false});
 const string = {type: 'string'};

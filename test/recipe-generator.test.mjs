@@ -8,7 +8,7 @@ import {createRecipeQueue, RecipeError} from '../recipe-queue.mjs';
 import {createRecipeAutomation, generateWithCodex, expandRecipeOutput, ingredientCatalog} from '../recipe-generator.mjs';
 import {createPantryServer} from '../server.mjs';
 import {eventTelemetry} from '../recipe-telemetry.mjs';
-import {recipeLibrary, catalogCandidates, catalogProtocol, instantiateRecipe} from '../recipe-catalog.mjs';
+import {recipeLibrary, catalogCandidates, catalogProtocol, instantiateRecipe} from '../recipe-catalog-expanded.mjs';
 import {createRecipeModelWorker} from '../recipe-model-worker.mjs';
 
 const input = {ingredients: '合成食材', servings: 2, maxMinutes: 30};
