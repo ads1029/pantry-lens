@@ -14,13 +14,13 @@ let ingredientGroup = 0;
 
 function renderIngredientPicker() {
   const value = $('#recipe-ingredients').value, count = ingredientList(value).length;
-  $('#ingredient-count').textContent = count ? `已选 ${count} 种食材` : '还没选食材';
+  $('#ingredient-count').textContent = count ? `已选 ${count} 种` : '';
   $('#ingredient-clear').disabled = count === 0;
   for (const button of document.querySelectorAll('[data-ingredient-group]')) button.setAttribute('aria-pressed', String(Number(button.dataset.ingredientGroup) === ingredientGroup));
   $('#ingredient-choices').innerHTML = ingredientGroups[ingredientGroup].items.map(name => `<button type="button" class="ingredient-choice" data-ingredient="${escape(name)}" aria-pressed="${hasIngredient(value, name)}">${escape(name)}</button>`).join('');
 }
 $('#ingredient-groups').innerHTML = ingredientGroups.map((group, index) => `<button type="button" data-ingredient-group="${index}" aria-pressed="${index === 0}">${escape(group.name)}</button>`).join('');
-$('#ingredient-combos').innerHTML = ingredientCombos.map((combo, index) => `<button type="button" data-ingredient-combo="${index}">${escape(combo.name)} <span aria-hidden="true">＋</span></button>`).join('');
+$('#ingredient-combos').innerHTML = ingredientCombos.map((combo, index) => `<button type="button" data-ingredient-combo="${index}">${escape(combo.name)}</button>`).join('');
 function applyIngredients(value) {
   $('#recipe-ingredients').value = value;
   $('#recipe-form-error').hidden = true;
@@ -60,7 +60,6 @@ function showView(recipes) {
 }
 $('#recipes-tab').onclick = () => showView(true);
 $('#pantry-tab').onclick = () => showView(false);
-$('#recipe-example').onclick = () => { applyIngredients('番茄、鸡蛋、豆腐'); $('#recipe-ingredients').focus(); };
 
 async function api(url, options = {}) {
   const response = await fetch(url, {...options, headers: {'Content-Type': 'application/json', 'X-Pantry-Local': '1'}, signal: AbortSignal.timeout(10000)});
@@ -72,7 +71,7 @@ function saveActive(id) { try { localStorage.setItem(storageKey, id); } catch { 
 function setWorking(value) {
   working = value;
   $('#recipe-submit').disabled = value;
-  $('#recipe-submit').innerHTML = value ? '正在推荐三道食谱… <span>◌</span>' : '推荐三道食谱 <span>↗</span>';
+  $('#recipe-submit').innerHTML = value ? '推荐中… <span>◌</span>' : '推荐三道 <span>↗</span>';
 }
 function handoff(request) {
   active = request;
@@ -121,12 +120,11 @@ function renderResult(result, metrics) {
     return;
   }
   $('#recipe-badge').textContent = staticMode ? '本地匹配 · 家常菜谱库' : result.generation?.mode === 'catalog' ? 'AI 挑选 · 家常菜谱库' : 'AI 现场生成 · 3 道';
-  $('#recipe-state').textContent = `本次食材：${active.ingredients.join('、')} · ${active.servings} 人份 · 每道 ${active.maxMinutes} 分钟内。以下是三个备选方案。`;
-  $('#recipe-results').innerHTML = result.recipes.map((recipe, index) => `<article class="recipe-card">
-    <div class="recipe-card-top"><span class="recipe-number">0${index + 1}</span><span>${recipe.minutes} 分钟 · ${recipe.servings} 人份</span></div>
-    <h3>${escape(recipe.title)}</h3><p class="recipe-reason">${escape(recipe.reason)}</p>
-    <ul class="recipe-ingredients">${recipe.ingredients.map(item => `<li><span>${escape(item.name)} <small>${escape(item.amount)}</small></span><em class="ingredient-${item.availability}">${availability[item.availability]}</em></li>`).join('')}</ul>
-    <details${index === 0 ? ' open' : ''}><summary>怎么做 · ${recipe.steps.length} 步</summary><ol class="recipe-steps">${recipe.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol><p class="recipe-tip">小贴士 · ${escape(recipe.tips)}</p></details>
+  $('#recipe-state').textContent = `${active.servings} 人份 · 三道备选`;
+  $('#recipe-results').innerHTML = result.recipes.map(recipe => `<article class="recipe-card">
+    <div class="recipe-card-top"><h3>${escape(recipe.title)}</h3><span>${recipe.minutes} 分钟</span></div>
+    <ul class="recipe-ingredients">${recipe.ingredients.map(item => `<li><span>${escape(item.name)} <small>${escape(item.amount)}</small></span>${item.availability === 'extra' ? '<em class="ingredient-extra">另备</em>' : `<em class="visually-hidden">${availability[item.availability]}</em>`}</li>`).join('')}</ul>
+    <details><summary>做法</summary><ol class="recipe-steps">${recipe.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol><p class="recipe-tip">${escape(recipe.tips)}</p></details>
   </article>`).join('');
   showMetrics(metrics);
   const captured = measurement, id = active.requestId;

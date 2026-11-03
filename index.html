@@ -1,27 +1,26 @@
 <!doctype html>
 <html lang="zh-CN" data-recipe-mode="static"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>一隅食记 · Pantry Lens</title><link rel="stylesheet" href="./style.css"></head>
-<body><div class="shell"><header><a href="./" class="brand"><span class="brand-mark">◒</span> 一隅食记 <small>PANTRY LENS</small></a><span class="local-dot">浏览器内匹配 · 不调用 AI</span></header>
-<main><section class="intro"><div><p class="eyebrow">FROM YOUR PANTRY, TO YOUR PLATE</p><h1>冰箱里有什么，<br>今天就做点什么。</h1><p class="lede">选一选手边的食材，把今天的一餐，交给一点灵感。</p></div><div class="still-life" aria-hidden="true"><div class="plate"><span class="tomato t1"></span><span class="tomato t2"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span></div><span class="still-caption">YOUR EVERYDAY INGREDIENTS</span></div></section>
-<nav class="view-switch" aria-label="功能切换"><button type="button" id="recipes-tab" aria-pressed="true">今天吃什么 <span>三道灵感，刚刚好</span></button><button type="button" id="pantry-tab" hidden disabled aria-pressed="false">食材库存 <span>照片入库与盘点</span></button></nav>
+<body><div class="shell"><header><a href="./" class="brand"><span class="brand-mark">◒</span> 一隅食记</a><span class="local-dot visually-hidden">浏览器内匹配 · 不调用 AI</span></header>
+<main><section class="intro"><h1>今天吃什么？</h1><div class="still-life" aria-hidden="true"><div class="plate"><span class="tomato t1"></span><span class="tomato t2"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span></div></div></section>
+<nav class="view-switch" hidden aria-label="功能切换"><button type="button" id="recipes-tab" aria-pressed="true">食谱推荐</button><button type="button" id="pantry-tab" hidden disabled aria-pressed="false">食材库存</button></nav>
 <section id="recipes-view" class="recipe-workspace" aria-label="食谱推荐">
 <form id="recipe-form" class="panel recipe-input">
-<p class="eyebrow">A LITTLE KITCHEN INSPIRATION</p><h2>从手边的食材开始</h2><p class="helper">不必凑齐一张采购清单。先看看，现有的能做什么。</p>
-<section class="ingredient-picker" aria-labelledby="ingredient-picker-title"><div class="ingredient-picker-heading"><h3 id="ingredient-picker-title">点选常用食材</h3><span>再点一次可取消</span></div><div id="ingredient-groups" class="ingredient-groups" role="group" aria-label="食材分类"></div><div id="ingredient-choices" class="ingredient-choices" role="group" aria-label="可选食材"></div><div class="ingredient-selection"><span id="ingredient-count" role="status" aria-live="polite">还没选食材</span><button id="ingredient-clear" type="button" class="text-button" disabled>清空食材</button></div></section>
-<div class="ingredient-combo-heading">一键搭配 <span>点击加入食材</span></div><div id="ingredient-combos" class="ingredient-combos" role="group" aria-label="家常搭配"></div>
-<label class="field-label" for="recipe-ingredients">这次用这些 <span>可直接补充或修改份量</span></label><textarea id="recipe-ingredients" rows="2" maxlength="2400" required placeholder="点选上方食材，或输入其他食材&#10;例如：鸡肉 200克、生菜、蒜蓉"></textarea>
-<button type="button" class="text-button" id="recipe-example">试填：番茄、鸡蛋、豆腐</button>
-<div class="recipe-options"><label class="field-label" for="recipe-servings">几个人吃<select id="recipe-servings"><option value="1">1 人</option><option value="2" selected>2 人</option><option value="3">3 人</option><option value="4">4 人</option></select></label><label class="field-label" for="recipe-minutes">做饭时间<select id="recipe-minutes"><option value="15">15 分钟内</option><option value="30" selected>30 分钟内</option><option value="45">45 分钟内</option><option value="60">60 分钟内</option></select></label></div>
-<label class="field-label" for="recipe-preferences">简单口味筛选 <span>选填</span></label><input id="recipe-preferences" maxlength="300" placeholder="例如：少油、素食、纯素">
-<label class="field-label" for="recipe-avoid">忌口或过敏食材 <span>选填</span></label><input id="recipe-avoid" maxlength="300" placeholder="例如：不吃香菜、花生过敏">
-<button id="recipe-submit" class="primary full" type="submit">推荐三道食谱 <span>↗</span></button>
-<p class="helper recipe-mode">在线版从24道家常菜中本地匹配三道，不调用AI、不上传食材。支持1–4人和简单条件筛选；不会理解复杂口味指令。匹配不足时会提示，不会现场生成。</p>
+<h2 id="ingredient-picker-title">选食材</h2>
+<section class="ingredient-picker" aria-labelledby="ingredient-picker-title"><div id="ingredient-groups" class="ingredient-groups" role="group" aria-label="食材分类"></div><div id="ingredient-choices" class="ingredient-choices" role="group" aria-label="可选食材"></div><div class="ingredient-selection"><span id="ingredient-count" role="status" aria-live="polite"></span><button id="ingredient-clear" type="button" class="text-button" disabled>清空</button></div></section>
+<div id="ingredient-combos" class="ingredient-combos" role="group" aria-label="家常搭配"></div>
+<label class="visually-hidden" for="recipe-ingredients">食材与份量</label><textarea id="recipe-ingredients" rows="2" maxlength="2400" required placeholder="补充食材或份量，如鸡肉200克"></textarea>
+<div class="recipe-options"><label class="field-label" for="recipe-servings">人数<select id="recipe-servings"><option value="1">1 人</option><option value="2" selected>2 人</option><option value="3">3 人</option><option value="4">4 人</option></select></label><label class="field-label" for="recipe-minutes">时间<select id="recipe-minutes"><option value="15">15 分钟内</option><option value="30" selected>30 分钟内</option><option value="45">45 分钟内</option><option value="60">60 分钟内</option></select></label></div>
+<details class="recipe-preferences"><summary>偏好与忌口</summary>
+<label class="field-label" for="recipe-preferences">口味</label><input id="recipe-preferences" maxlength="300" placeholder="少油、素食、纯素">
+<label class="field-label" for="recipe-avoid">忌口或过敏</label><input id="recipe-avoid" maxlength="300" placeholder="香菜、花生等"></details>
+<button id="recipe-submit" class="primary full" type="submit">推荐三道 <span>↗</span></button>
+<p class="helper recipe-mode" hidden>在线版从24道家常菜中本地匹配三道，不调用AI、不上传食材。支持1–4人和简单条件筛选；不会理解复杂口味指令。匹配不足时会提示，不会现场生成。</p>
 <p id="recipe-form-error" class="recipe-error" role="alert" hidden></p>
 </form>
-<section class="recipe-output" aria-labelledby="recipe-output-title"><div class="recipe-heading"><div><p class="eyebrow">THREE IDEAS FOR TODAY</p><h2 id="recipe-output-title">今天的一餐，有了方向</h2></div><span id="recipe-badge" class="source-badge">等待食材</span></div>
-<p id="recipe-state" class="helper" role="status" aria-live="polite">先写下食材，三道推荐会在这里与你见面。</p>
+<section class="recipe-output" aria-labelledby="recipe-output-title"><div class="recipe-heading"><h2 id="recipe-output-title">三道推荐</h2><span id="recipe-badge" class="visually-hidden">等待食材</span></div>
+<p id="recipe-state" class="helper" role="status" aria-live="polite"></p>
 <div id="recipe-handoff" class="recipe-handoff" hidden><p id="recipe-job-description">食材已保存，正在自动生成三道推荐。完成后会直接显示在这里。</p><div class="handoff-actions"><button id="recipe-check" class="text-button" type="button">检查进度</button><button id="recipe-retry" class="text-button" type="button" hidden>重试生成</button><button id="recipe-download" class="text-button" type="button">导出请求 JSON</button></div></div>
-<div id="recipe-results"><div class="recipe-empty"><div class="recipe-empty-mark" aria-hidden="true">◒</div><p>平常的食材，也有新吃法。</p><span>优先用已有食材 · 额外用料单独标明 · 步骤清楚好跟做</span><div class="recipe-empty-numbers" aria-hidden="true"><i>01</i><i>02</i><i>03</i></div></div></div>
+<div id="recipe-results"><div class="recipe-empty"><div class="recipe-empty-mark" aria-hidden="true">◒</div><p>等你选好食材</p></div></div>
 <details id="recipe-timing" hidden><summary>本次耗时与生成信息</summary><dl id="recipe-timing-content"></dl></details>
-<p class="privacy">推荐不会扣减库存。用量是烹饪建议；做饭前请核对忌口和配料。</p>
 </section></section>
-<div id="pantry-view" hidden></div><footer>一隅食记 <span>把日常，照顾得刚刚好。</span><a href="#" id="about">原型说明</a></footer></main></div><div id="status" role="status" aria-live="polite" hidden></div><script type="module" src="./src/static-shell.js"></script><script type="module" src="./src/recipe-app.js"></script></body></html>
+<div id="pantry-view" hidden></div><footer><span>一隅食记</span><a href="#" id="about">关于</a></footer></main></div><div id="status" role="status" aria-live="polite" hidden></div><script type="module" src="./src/static-shell.js"></script><script type="module" src="./src/recipe-app.js"></script></body></html>
