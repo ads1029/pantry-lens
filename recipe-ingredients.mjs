@@ -1,8 +1,8 @@
-const aliases = new Map([['鸡胸肉', '鸡肉'], ['鸡腿肉', '鸡肉'], ['猪里脊', '猪肉'], ['猪瘦肉', '猪肉'], ['牛里脊', '牛肉'], ['蒜末', '蒜蓉'], ['姜末', '姜蓉'], ['上海青', '小白菜'], ['鲜香菇', '香菇']]);
+const aliases = new Map([['鸡胸肉', '鸡肉'], ['鸡腿肉', '鸡肉'], ['猪里脊', '猪肉'], ['猪瘦肉', '猪肉'], ['牛里脊', '牛肉'], ['蒜末', '蒜蓉'], ['姜末', '姜蓉'], ['上海青', '小白菜'], ['鲜香菇', '香菇'], ['西兰花菜', '西兰花'], ['zucchini', '西葫芦'], ['capsicum', '青椒'], ['broccoli', '西兰花'], ['chickpeas', '鹰嘴豆'], ['tofu', '豆腐'], ['罐头鹰嘴豆', '鹰嘴豆'], ['全麦意大利面', '全麦意面']]);
 const quantity = /\s*(\d+(?:\.\d+)?)\s*(千克|公斤|毫升|克|升|个|只|块|根|片|斤|两|袋|盒|份|kg|ml|g|l)/i;
 export function ingredientName(value) {
   const name = value.replace(new RegExp(quantity.source + '.*', 'i'), '').trim() || value.trim();
-  return aliases.get(name) ?? name;
+  return aliases.get(name.toLowerCase()) ?? name;
 }
 export function ingredientLimit(value) {
   const match = value.match(quantity);
