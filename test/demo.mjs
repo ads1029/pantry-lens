@@ -1,0 +1,15 @@
+import {FixtureProvider} from '../src/providers.js';
+import {emptyState,prepareDraft,correctCandidate,commitDraft,undoLast,quantityLabel} from '../src/core.js';
+const result=await new FixtureProvider().analyze();
+let state=emptyState(),draft=prepareDraft(result.candidates,state,'purchase');
+console.log('一隅食记：真实数据流短演示（固定 fixture，未运行 AI / OCR）');
+console.log('1. 初始库存批次：',state.batches.length);
+console.log('2. 生成候选后库存批次：',state.batches.length,'；候选：',draft.candidates.length);
+draft.candidates[0]=correctCandidate(draft.candidates[0],'小番茄 4个');
+console.log('3. 文字纠正：',draft.candidates[0].name,quantityLabel(draft.candidates[0].quantity));
+state=commitDraft(state,draft).state;
+console.log('4. 确认后库存：',state.batches.map(b=>`${b.name} ${quantityLabel(b.quantity)}${b.packageNet?'（包装净含量 '+b.packageNet.value+b.packageNet.unit+'，已开封，剩余未知）':''}`).join('；'));
+state=commitDraft(state,draft).state;
+console.log('5. 重复确认后仍为',state.batches.length,'个批次');
+state=undoLast(state);
+console.log('6. 撤销后库存批次：',state.batches.length);

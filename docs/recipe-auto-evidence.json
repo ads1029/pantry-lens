@@ -1,0 +1,184 @@
+{
+  "scenario": "人工输入的非私人食材；真实浏览器点击后经本机CLI自动生成，无聊天写回、fixture或API key",
+  "cliVersion": "0.159.3",
+  "authenticationCheck": "codex login status: Logged in using ChatGPT",
+  "request": {
+    "schemaVersion": 1,
+    "requestId": "99c48566-9e96-4c4e-a36f-c03f64538772",
+    "createdAt": "2026-11-02T09:03:31.799Z",
+    "ingredients": [
+      "土豆",
+      "胡萝卜",
+      "鸡蛋"
+    ],
+    "servings": 2,
+    "maxMinutes": 30,
+    "preferences": "清淡、少油",
+    "avoid": "不放辣椒"
+  },
+  "result": {
+    "schemaVersion": 1,
+    "requestId": "99c48566-9e96-4c4e-a36f-c03f64538772",
+    "source": "codex",
+    "generatedAt": "2026-11-02T09:04:11.483Z",
+    "status": "completed",
+    "recipes": [
+      {
+        "title": "土豆胡萝卜鸡蛋软饼",
+        "reason": "复用三种已有食材，用不粘锅少油煎制，口味清淡，不放辣椒。",
+        "minutes": 25,
+        "servings": 2,
+        "ingredients": [
+          {
+            "name": "土豆",
+            "amount": "建议200克",
+            "availability": "provided"
+          },
+          {
+            "name": "胡萝卜",
+            "amount": "建议100克",
+            "availability": "provided"
+          },
+          {
+            "name": "鸡蛋",
+            "amount": "建议2个",
+            "availability": "provided"
+          },
+          {
+            "name": "面粉",
+            "amount": "建议30克",
+            "availability": "extra"
+          },
+          {
+            "name": "食用油",
+            "amount": "建议5毫升",
+            "availability": "staple"
+          },
+          {
+            "name": "盐",
+            "amount": "建议1克",
+            "availability": "staple"
+          },
+          {
+            "name": "水",
+            "amount": "建议20毫升，按面糊稠度调整",
+            "availability": "staple"
+          }
+        ],
+        "steps": [
+          "土豆去皮，与胡萝卜一起洗净，擦成细丝；土豆丝不必浸泡，保留淀粉帮助成形。",
+          "加入鸡蛋、面粉和盐拌匀，按需少量加水，调成能黏住菜丝、没有干粉的稠糊。",
+          "不粘锅刷油，开中小火，将面糊分批摊成厚度不超过约0.8厘米的小饼。",
+          "每面煎约4分钟，翻面后可加盖焖2分钟。切开最厚的一块检查：中心蛋液完全凝固、没有湿面糊，土豆丝柔软无硬芯后出锅；未熟则继续小火加热。"
+        ],
+        "tips": "饼摊薄更容易熟透。面粉需另备；若分两批煎，食用油总量仍控制在建议量内。"
+      },
+      {
+        "title": "胡萝卜鸡蛋羹",
+        "reason": "以蒸制减少用油，鸡蛋搭配细碎胡萝卜，口感柔软、调味清淡。",
+        "minutes": 25,
+        "servings": 2,
+        "ingredients": [
+          {
+            "name": "鸡蛋",
+            "amount": "建议3个",
+            "availability": "provided"
+          },
+          {
+            "name": "胡萝卜",
+            "amount": "建议60克",
+            "availability": "provided"
+          },
+          {
+            "name": "温水",
+            "amount": "建议225毫升",
+            "availability": "staple"
+          },
+          {
+            "name": "盐",
+            "amount": "建议1克",
+            "availability": "staple"
+          },
+          {
+            "name": "蒸锅用水",
+            "amount": "建议1000毫升，按锅具调整",
+            "availability": "staple"
+          }
+        ],
+        "steps": [
+          "蒸锅加水烧开。胡萝卜洗净，擦成极细的丝，再切碎。",
+          "鸡蛋打散，加入温水和盐拌匀，撇去明显浮沫，再加入胡萝卜碎。",
+          "分装进两个耐热浅碗，蛋液深度尽量不超过3厘米，盖上耐热盘，放入已上汽的蒸锅。",
+          "中小火蒸12至15分钟。轻晃碗时中心应整体凝固、不出现流动蛋液；用干净小勺划开中心确认熟透。若仍有蛋液，继续蒸2至3分钟后再检查。"
+        ],
+        "tips": "温水以不烫手为宜。碗较深会延长蒸制时间，使用浅碗更容易在限定时间内熟透。取碗时注意防烫。"
+      },
+      {
+        "title": "清炖土豆胡萝卜",
+        "reason": "复用土豆和胡萝卜，无需放油，靠炖煮呈现食材本味，适合清淡口味。",
+        "minutes": 25,
+        "servings": 2,
+        "ingredients": [
+          {
+            "name": "土豆",
+            "amount": "建议300克",
+            "availability": "provided"
+          },
+          {
+            "name": "胡萝卜",
+            "amount": "建议150克",
+            "availability": "provided"
+          },
+          {
+            "name": "水",
+            "amount": "建议600毫升",
+            "availability": "staple"
+          },
+          {
+            "name": "盐",
+            "amount": "建议1克",
+            "availability": "staple"
+          }
+        ],
+        "steps": [
+          "土豆去皮，与胡萝卜一起洗净，均切成约1.5厘米的小块。",
+          "将土豆、胡萝卜和水放入小锅，大火煮开后转小火，加盖留缝炖15至18分钟。",
+          "用筷子插入最大的土豆和胡萝卜块，能轻松穿透、中心没有硬芯即熟。加入盐拌匀，再煮1分钟。",
+          "喜欢汤汁稍稠，可用勺子压碎少量土豆后拌回锅中；出锅前确认锅底仍有汤汁。"
+        ],
+        "tips": "使用小锅有助于减少水分蒸发；若中途水量不足，可补少量热水。土豆若明显发绿或发芽严重，应弃用。"
+      }
+    ]
+  },
+  "job": {
+    "requestId": "99c48566-9e96-4c4e-a36f-c03f64538772",
+    "status": "completed",
+    "updatedAt": "2026-11-02T09:04:11.485Z",
+    "error": ""
+  },
+  "elapsedSeconds": 40,
+  "observed": {
+    "afterClick": {
+      "cards": 0,
+      "submitDisabled": true,
+      "badge": "Codex 正在生成"
+    },
+    "afterCompletion": {
+      "cards": 3,
+      "submitDisabled": false,
+      "badge": "Codex 生成 · 3 道"
+    },
+    "afterReload": {
+      "requestId": "99c48566-9e96-4c4e-a36f-c03f64538772",
+      "cards": 3,
+      "submitDisabled": false,
+      "copyButtonPresent": false
+    },
+    "mobileSimulation": {
+      "viewport": 390,
+      "scrollWidth": 390,
+      "realDevice": false
+    }
+  },
+  "limits": "单次样本；未验证实际烹饪、忌口语义、手机真机；失败/超时/重启通过合成生成器和子进程测试验证"
+}

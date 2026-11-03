@@ -1,0 +1,12 @@
+
+> pantry-lens-local@0.2.0 test:ocr
+> node test/ocr-check.mjs
+
+真实本地 OCR 通过：人工标签图片 → HTTP → Apple Vision → 6 个包装候选 → 入库（剩余均未知）
+嫩豆腐: 300克，opened，剩余未知
+Rolled Oats: 0.5千克，opened，剩余未知
+大米: 2千克，sealed，剩余未知
+Yogurt: 125克，sealed，剩余未知
+豆乳: 250毫升，opened，剩余未知
+Apple Juice: 330毫升，opened，剩余未知
+安全边界: {"wrongMime":415,"svg":415,"corruptImage":422,"oversized":413,"crossOrigin":403,"userPath":404} ；临时图片全部清理；静态路径未暴露服务端文件

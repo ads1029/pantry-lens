@@ -1,0 +1,794 @@
+{
+  "testImage": "人工生成标签，非用户照片",
+  "imageSHA256": "fcc03166e6b510ca6acbbbb457d4e25a65f5ba9a5f9f140353bf5f4ab1af3a16",
+  "execution": "Actual Apple Vision via local HTTP API; no external service",
+  "at": "2026-10-19T00:46:57.540Z",
+  "raw": {
+    "height": 1350,
+    "languages": [
+      "zh-Hans",
+      "zh-Hant",
+      "en-US"
+    ],
+    "lines": [
+      {
+        "confidence": 0.5,
+        "box": {
+          "y": 0.9166666669444444,
+          "width": 0.4375,
+          "height": 0.03888888888888886,
+          "x": 0.03333333770833324
+        },
+        "text": "SYNTHETIC TEST LABELS / 人工生成测试标签"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "x": 0.04500248762687878,
+          "y": 0.8115857719565382,
+          "height": 0.035743184972692355,
+          "width": 0.1498206075032552
+        },
+        "text": "品名：嫩豆腐"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "height": 0.031231697930230062,
+          "x": 0.5276162773142892,
+          "y": 0.8139534877851251,
+          "width": 0.24273256089952255
+        },
+        "text": "Product: Rolled Oats"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "height": 0.037062876666033695,
+          "x": 0.04360465216407696,
+          "y": 0.7577519383804519,
+          "width": 0.17005813598632813
+        },
+        "text": "净含量：300克"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "y": 0.7555555551014603,
+          "width": 0.21366278754340273,
+          "height": 0.03514211866590711,
+          "x": 0.5290697711556241
+        },
+        "text": "Net weight:0.5kg"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "x": 0.04505813798139233,
+          "width": 0.07412790934244791,
+          "y": 0.705185184956858,
+          "height": 0.03512489177562572
+        },
+        "text": "已开封"
+      },
+      {
+        "confidence": 1,
+        "box": {
+          "height": 0.0337524837917752,
+          "y": 0.7050229832465571,
+          "width": 0.09173117743598092,
+          "x": 0.5275355733040095
+        },
+        "text": "Opened"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "y": 0.5286752746496042,
+          "height": 0.037610691211841685,
+          "x": 0.04499343859853743,
+          "width": 0.125129403008355
+        },
+        "text": "品名：大米"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "height": 0.0444444444444444,
+          "width": 0.19166666666666665,
+          "y": 0.5222222224603175,
+          "x": 0.5250000013690476
+        },
+        "text": "Product: Yogurt"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "width": 0.1660659620496962,
+          "x": 0.04342050696288846,
+          "height": 0.03989291155779795,
+          "y": 0.4752085832948012
+        },
+        "text": "净含量：2千克"
+      },
+      {
+        "confidence": 0.3,
+        "box": {
+          "width": 0.15406975640190967,
+          "x": 0.5290697736643553,
+          "y": 0.4748062025310822,
+          "height": 0.03488371955023872
+        },
+        "text": "Net wt: 125g"
+      },
+      {
+        "confidence": 1,
+        "box": {
+          "y": 0.4222222226820639,
+          "width": 0.0755813937717014,
+          "x": 0.04360465203441508,
+          "height": 0.037080102143464355
+        },
+        "text": "未开封"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "y": 0.42223966916820277,
+          "width": 0.1192604488796658,
+          "height": 0.033427638301142926,
+          "x": 0.5275790766937613
+        },
+        "text": "Unopened"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "x": 0.04505814007994183,
+          "width": 0.125,
+          "height": 0.037123168662742345,
+          "y": 0.24806201622686652
+        },
+        "text": "品名：豆乳"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "y": 0.24806201631026548,
+          "x": 0.5276162756670024,
+          "width": 0.24273256089952255,
+          "height": 0.03294573465983075
+        },
+        "text": "Product: Apple Juice"
+      },
+      {
+        "confidence": 1,
+        "box": {
+          "x": 0.043604651774512115,
+          "width": 0.19476743910047742,
+          "y": 0.19379844984224592,
+          "height": 0.036821704440646696
+        },
+        "text": "净含量：250毫升"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "x": 0.5290697715017991,
+          "y": 0.19767441858615864,
+          "width": 0.2456395297580296,
+          "height": 0.03121446962709784
+        },
+        "text": "Net contents: 330 ml"
+      },
+      {
+        "confidence": 0.5,
+        "box": {
+          "y": 0.14147286901675682,
+          "width": 0.07412790934244792,
+          "height": 0.03704564977575242,
+          "x": 0.045058138703291555
+        },
+        "text": "已开封"
+      },
+      {
+        "confidence": 1,
+        "box": {
+          "width": 0.0920676422119141,
+          "y": 0.1401967226191868,
+          "height": 0.0354980270950882,
+          "x": 0.5273673414261194
+        },
+        "text": "Opened"
+      }
+    ],
+    "engine": "Apple Vision VNRecognizeTextRequest",
+    "width": 1800
+  },
+  "parsed": {
+    "provider": "apple-vision-local-ocr",
+    "isFixture": false,
+    "candidates": [
+      {
+        "id": "ocr-0-0",
+        "name": "嫩豆腐",
+        "quantity": {
+          "min": null,
+          "max": null,
+          "unit": "未知",
+          "source": "unknown"
+        },
+        "packageNet": {
+          "value": 300,
+          "unit": "克",
+          "source": "package_ocr",
+          "evidence": "净含量：300克"
+        },
+        "opened": "opened",
+        "evidence": [
+          {
+            "kind": "local_ocr",
+            "text": "品名：嫩豆腐",
+            "confidence": 0.5,
+            "box": {
+              "x": 0.04500248762687878,
+              "y": 0.8115857719565382,
+              "height": 0.035743184972692355,
+              "width": 0.1498206075032552
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "净含量：300克",
+            "confidence": 0.5,
+            "box": {
+              "height": 0.037062876666033695,
+              "x": 0.04360465216407696,
+              "y": 0.7577519383804519,
+              "width": 0.17005813598632813
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "已开封",
+            "confidence": 0.5,
+            "box": {
+              "x": 0.04505813798139233,
+              "width": 0.07412790934244791,
+              "y": 0.705185184956858,
+              "height": 0.03512489177562572
+            },
+            "photoIndex": 0
+          }
+        ],
+        "uncertainties": [
+          "包装名称来自邻近文字，请核对是否属于同一包装",
+          "净含量不是当前剩余量；剩余数量/重量保留未知",
+          "OCR 置信度偏低，请核对标签"
+        ],
+        "location": "冷藏"
+      },
+      {
+        "id": "ocr-0-1",
+        "name": "Rolled Oats",
+        "quantity": {
+          "min": null,
+          "max": null,
+          "unit": "未知",
+          "source": "unknown"
+        },
+        "packageNet": {
+          "value": 0.5,
+          "unit": "千克",
+          "source": "package_ocr",
+          "evidence": "Net weight:0.5kg"
+        },
+        "opened": "opened",
+        "evidence": [
+          {
+            "kind": "local_ocr",
+            "text": "Product: Rolled Oats",
+            "confidence": 0.5,
+            "box": {
+              "height": 0.031231697930230062,
+              "x": 0.5276162773142892,
+              "y": 0.8139534877851251,
+              "width": 0.24273256089952255
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "Net weight:0.5kg",
+            "confidence": 0.5,
+            "box": {
+              "y": 0.7555555551014603,
+              "width": 0.21366278754340273,
+              "height": 0.03514211866590711,
+              "x": 0.5290697711556241
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "Opened",
+            "confidence": 1,
+            "box": {
+              "height": 0.0337524837917752,
+              "y": 0.7050229832465571,
+              "width": 0.09173117743598092,
+              "x": 0.5275355733040095
+            },
+            "photoIndex": 0
+          }
+        ],
+        "uncertainties": [
+          "包装名称来自邻近文字，请核对是否属于同一包装",
+          "净含量不是当前剩余量；剩余数量/重量保留未知",
+          "OCR 置信度偏低，请核对标签"
+        ],
+        "location": "冷藏"
+      },
+      {
+        "id": "ocr-0-2",
+        "name": "大米",
+        "quantity": {
+          "min": null,
+          "max": null,
+          "unit": "未知",
+          "source": "unknown"
+        },
+        "packageNet": {
+          "value": 2,
+          "unit": "千克",
+          "source": "package_ocr",
+          "evidence": "净含量：2千克"
+        },
+        "opened": "sealed",
+        "evidence": [
+          {
+            "kind": "local_ocr",
+            "text": "品名：大米",
+            "confidence": 0.5,
+            "box": {
+              "y": 0.5286752746496042,
+              "height": 0.037610691211841685,
+              "x": 0.04499343859853743,
+              "width": 0.125129403008355
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "净含量：2千克",
+            "confidence": 0.5,
+            "box": {
+              "width": 0.1660659620496962,
+              "x": 0.04342050696288846,
+              "height": 0.03989291155779795,
+              "y": 0.4752085832948012
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "未开封",
+            "confidence": 1,
+            "box": {
+              "y": 0.4222222226820639,
+              "width": 0.0755813937717014,
+              "x": 0.04360465203441508,
+              "height": 0.037080102143464355
+            },
+            "photoIndex": 0
+          }
+        ],
+        "uncertainties": [
+          "包装名称来自邻近文字，请核对是否属于同一包装",
+          "净含量不是当前剩余量；剩余数量/重量保留未知",
+          "OCR 置信度偏低，请核对标签"
+        ],
+        "location": "冷藏"
+      },
+      {
+        "id": "ocr-0-3",
+        "name": "Yogurt",
+        "quantity": {
+          "min": null,
+          "max": null,
+          "unit": "未知",
+          "source": "unknown"
+        },
+        "packageNet": {
+          "value": 125,
+          "unit": "克",
+          "source": "package_ocr",
+          "evidence": "Net wt: 125g"
+        },
+        "opened": "sealed",
+        "evidence": [
+          {
+            "kind": "local_ocr",
+            "text": "Product: Yogurt",
+            "confidence": 0.5,
+            "box": {
+              "height": 0.0444444444444444,
+              "width": 0.19166666666666665,
+              "y": 0.5222222224603175,
+              "x": 0.5250000013690476
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "Net wt: 125g",
+            "confidence": 0.3,
+            "box": {
+              "width": 0.15406975640190967,
+              "x": 0.5290697736643553,
+              "y": 0.4748062025310822,
+              "height": 0.03488371955023872
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "Unopened",
+            "confidence": 0.5,
+            "box": {
+              "y": 0.42223966916820277,
+              "width": 0.1192604488796658,
+              "height": 0.033427638301142926,
+              "x": 0.5275790766937613
+            },
+            "photoIndex": 0
+          }
+        ],
+        "uncertainties": [
+          "包装名称来自邻近文字，请核对是否属于同一包装",
+          "净含量不是当前剩余量；剩余数量/重量保留未知",
+          "OCR 置信度偏低，请核对标签"
+        ],
+        "location": "冷藏"
+      },
+      {
+        "id": "ocr-0-4",
+        "name": "豆乳",
+        "quantity": {
+          "min": null,
+          "max": null,
+          "unit": "未知",
+          "source": "unknown"
+        },
+        "packageNet": {
+          "value": 250,
+          "unit": "毫升",
+          "source": "package_ocr",
+          "evidence": "净含量：250毫升"
+        },
+        "opened": "opened",
+        "evidence": [
+          {
+            "kind": "local_ocr",
+            "text": "品名：豆乳",
+            "confidence": 0.5,
+            "box": {
+              "x": 0.04505814007994183,
+              "width": 0.125,
+              "height": 0.037123168662742345,
+              "y": 0.24806201622686652
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "净含量：250毫升",
+            "confidence": 1,
+            "box": {
+              "x": 0.043604651774512115,
+              "width": 0.19476743910047742,
+              "y": 0.19379844984224592,
+              "height": 0.036821704440646696
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "已开封",
+            "confidence": 0.5,
+            "box": {
+              "y": 0.14147286901675682,
+              "width": 0.07412790934244792,
+              "height": 0.03704564977575242,
+              "x": 0.045058138703291555
+            },
+            "photoIndex": 0
+          }
+        ],
+        "uncertainties": [
+          "包装名称来自邻近文字，请核对是否属于同一包装",
+          "净含量不是当前剩余量；剩余数量/重量保留未知"
+        ],
+        "location": "冷藏"
+      },
+      {
+        "id": "ocr-0-5",
+        "name": "Apple Juice",
+        "quantity": {
+          "min": null,
+          "max": null,
+          "unit": "未知",
+          "source": "unknown"
+        },
+        "packageNet": {
+          "value": 330,
+          "unit": "毫升",
+          "source": "package_ocr",
+          "evidence": "Net contents: 330 ml"
+        },
+        "opened": "opened",
+        "evidence": [
+          {
+            "kind": "local_ocr",
+            "text": "Product: Apple Juice",
+            "confidence": 0.5,
+            "box": {
+              "y": 0.24806201631026548,
+              "x": 0.5276162756670024,
+              "width": 0.24273256089952255,
+              "height": 0.03294573465983075
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "Net contents: 330 ml",
+            "confidence": 0.5,
+            "box": {
+              "x": 0.5290697715017991,
+              "y": 0.19767441858615864,
+              "width": 0.2456395297580296,
+              "height": 0.03121446962709784
+            },
+            "photoIndex": 0
+          },
+          {
+            "kind": "local_ocr",
+            "text": "Opened",
+            "confidence": 1,
+            "box": {
+              "width": 0.0920676422119141,
+              "y": 0.1401967226191868,
+              "height": 0.0354980270950882,
+              "x": 0.5273673414261194
+            },
+            "photoIndex": 0
+          }
+        ],
+        "uncertainties": [
+          "包装名称来自邻近文字，请核对是否属于同一包装",
+          "净含量不是当前剩余量；剩余数量/重量保留未知",
+          "OCR 置信度偏低，请核对标签"
+        ],
+        "location": "冷藏"
+      }
+    ],
+    "ocr": {
+      "engine": "Apple Vision VNRecognizeTextRequest",
+      "photoIndex": 0,
+      "width": 1800,
+      "height": 1350,
+      "lines": [
+        {
+          "confidence": 0.5,
+          "box": {
+            "y": 0.9166666669444444,
+            "width": 0.4375,
+            "height": 0.03888888888888886,
+            "x": 0.03333333770833324
+          },
+          "text": "SYNTHETIC TEST LABELS / 人工生成测试标签"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "x": 0.04500248762687878,
+            "y": 0.8115857719565382,
+            "height": 0.035743184972692355,
+            "width": 0.1498206075032552
+          },
+          "text": "品名：嫩豆腐"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "height": 0.031231697930230062,
+            "x": 0.5276162773142892,
+            "y": 0.8139534877851251,
+            "width": 0.24273256089952255
+          },
+          "text": "Product: Rolled Oats"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "height": 0.037062876666033695,
+            "x": 0.04360465216407696,
+            "y": 0.7577519383804519,
+            "width": 0.17005813598632813
+          },
+          "text": "净含量：300克"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "y": 0.7555555551014603,
+            "width": 0.21366278754340273,
+            "height": 0.03514211866590711,
+            "x": 0.5290697711556241
+          },
+          "text": "Net weight:0.5kg"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "x": 0.04505813798139233,
+            "width": 0.07412790934244791,
+            "y": 0.705185184956858,
+            "height": 0.03512489177562572
+          },
+          "text": "已开封"
+        },
+        {
+          "confidence": 1,
+          "box": {
+            "height": 0.0337524837917752,
+            "y": 0.7050229832465571,
+            "width": 0.09173117743598092,
+            "x": 0.5275355733040095
+          },
+          "text": "Opened"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "y": 0.5286752746496042,
+            "height": 0.037610691211841685,
+            "x": 0.04499343859853743,
+            "width": 0.125129403008355
+          },
+          "text": "品名：大米"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "height": 0.0444444444444444,
+            "width": 0.19166666666666665,
+            "y": 0.5222222224603175,
+            "x": 0.5250000013690476
+          },
+          "text": "Product: Yogurt"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "width": 0.1660659620496962,
+            "x": 0.04342050696288846,
+            "height": 0.03989291155779795,
+            "y": 0.4752085832948012
+          },
+          "text": "净含量：2千克"
+        },
+        {
+          "confidence": 0.3,
+          "box": {
+            "width": 0.15406975640190967,
+            "x": 0.5290697736643553,
+            "y": 0.4748062025310822,
+            "height": 0.03488371955023872
+          },
+          "text": "Net wt: 125g"
+        },
+        {
+          "confidence": 1,
+          "box": {
+            "y": 0.4222222226820639,
+            "width": 0.0755813937717014,
+            "x": 0.04360465203441508,
+            "height": 0.037080102143464355
+          },
+          "text": "未开封"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "y": 0.42223966916820277,
+            "width": 0.1192604488796658,
+            "height": 0.033427638301142926,
+            "x": 0.5275790766937613
+          },
+          "text": "Unopened"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "x": 0.04505814007994183,
+            "width": 0.125,
+            "height": 0.037123168662742345,
+            "y": 0.24806201622686652
+          },
+          "text": "品名：豆乳"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "y": 0.24806201631026548,
+            "x": 0.5276162756670024,
+            "width": 0.24273256089952255,
+            "height": 0.03294573465983075
+          },
+          "text": "Product: Apple Juice"
+        },
+        {
+          "confidence": 1,
+          "box": {
+            "x": 0.043604651774512115,
+            "width": 0.19476743910047742,
+            "y": 0.19379844984224592,
+            "height": 0.036821704440646696
+          },
+          "text": "净含量：250毫升"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "x": 0.5290697715017991,
+            "y": 0.19767441858615864,
+            "width": 0.2456395297580296,
+            "height": 0.03121446962709784
+          },
+          "text": "Net contents: 330 ml"
+        },
+        {
+          "confidence": 0.5,
+          "box": {
+            "y": 0.14147286901675682,
+            "width": 0.07412790934244792,
+            "height": 0.03704564977575242,
+            "x": 0.045058138703291555
+          },
+          "text": "已开封"
+        },
+        {
+          "confidence": 1,
+          "box": {
+            "width": 0.0920676422119141,
+            "y": 0.1401967226191868,
+            "height": 0.0354980270950882,
+            "x": 0.5273673414261194
+          },
+          "text": "Opened"
+        }
+      ]
+    },
+    "warnings": [
+      "真实 Apple Vision 本地 OCR；只提取标签文字。不能识别无标签食材、判断实际剩余量或准确估重。"
+    ]
+  },
+  "checks": {
+    "candidateCount": 6,
+    "allRemainingUnknown": true,
+    "repeatCommitBatchCount": 6,
+    "temporaryFilesCleaned": true,
+    "statuses": {
+      "wrongMime": 415,
+      "svg": 415,
+      "corruptImage": 422,
+      "oversized": 413,
+      "crossOrigin": 403,
+      "userPath": 404
+    }
+  }
+}

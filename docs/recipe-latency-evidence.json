@@ -1,0 +1,243 @@
+{
+  "at": "2026-11-02T11:33:48.730Z",
+  "objective": "常见匹配组合点击后5秒内显示三道完整菜谱",
+  "acceptance": "用户已明确接受菜谱库＋AI挑选；匹配不足时现场生成，可超过5秒",
+  "library": {
+    "version": "home-20261102-v1",
+    "count": 24,
+    "source": "本项目编写的家常食谱；非抓取或第三方代码复制"
+  },
+  "baselines": [
+    {
+      "requestId": "99c48566-9e96-4c4e-a36f-c03f64538772",
+      "ingredients": [
+        "土豆",
+        "胡萝卜",
+        "鸡蛋"
+      ],
+      "requestToGeneratedMs": 39684,
+      "model": "not recorded",
+      "scope": "历史现场生成，后台时间，不含页面显示；不同时间样本，非严格统计A/B"
+    },
+    {
+      "requestId": "2ce58435-2334-45fa-a252-6134616faa5f",
+      "ingredients": [
+        "鸡肉 200克",
+        "生菜",
+        "蒜蓉",
+        "姜蓉"
+      ],
+      "requestToGeneratedMs": 41652,
+      "model": "not recorded",
+      "scope": "历史现场生成，后台时间，不含页面显示；不同时间样本，非严格统计A/B"
+    }
+  ],
+  "trials": [
+    {
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "e2e8f214-1e5f-4edb-84dc-0695274ba43b",
+        "createdAt": "2026-11-02T11:27:16.109Z",
+        "ingredients": [
+          "鸡肉 200克",
+          "生菜",
+          "蒜蓉",
+          "姜蓉"
+        ],
+        "servings": 2,
+        "maxMinutes": 30,
+        "preferences": "清淡、少油",
+        "avoid": "不放辣椒"
+      },
+      "generation": {
+        "mode": "catalog",
+        "libraryVersion": "home-20261102-v1"
+      },
+      "titles": [
+        "鸡肉生菜汤",
+        "姜蒜蒸鸡",
+        "蒜蓉生菜"
+      ],
+      "metrics": {
+        "schemaVersion": 1,
+        "requestId": "e2e8f214-1e5f-4edb-84dc-0695274ba43b",
+        "attemptId": "558a0ff9-ace3-4f4d-ad51-7b056c58c868",
+        "startedAt": "2026-11-02T11:27:16.111Z",
+        "timingsMs": {
+          "requestSave": 1.56,
+          "threadStart": 769.3,
+          "firstEvent": 778.34,
+          "firstText": 3268,
+          "modelRequest": 2625.98,
+          "parse": 0.87,
+          "generator": 3397.31,
+          "resultSave": 1.88,
+          "backend": 3402.82
+        },
+        "configuredModel": "gpt-6-luna",
+        "reportedModel": "gpt-6-luna",
+        "reasoningEffort": "none",
+        "promptVersion": "catalog-selector-v1",
+        "generationMode": "catalog",
+        "transport": "app-server",
+        "usage": {
+          "inputTokens": 5501,
+          "cachedInputTokens": 0,
+          "outputTokens": 23,
+          "reasoningTokens": 0
+        },
+        "resultBytes": 27,
+        "finishedAt": "2026-11-02T11:27:19.511Z",
+        "browser": {
+          "attemptId": "558a0ff9-ace3-4f4d-ad51-7b056c58c868",
+          "recordedAt": "2026-11-02T11:27:20.360Z",
+          "totalMs": 4251.6,
+          "acceptedMs": 53.9,
+          "afterAcceptedMs": 4197.7,
+          "renderMs": 743.4
+        }
+      },
+      "passed": true
+    },
+    {
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "ac3c7fd8-d8bc-4ece-b29d-921faa7c7f1d",
+        "createdAt": "2026-11-02T11:27:21.417Z",
+        "ingredients": [
+          "猪肉 200克",
+          "油麦菜",
+          "蒜蓉",
+          "姜蓉"
+        ],
+        "servings": 2,
+        "maxMinutes": 30,
+        "preferences": "清淡、少油",
+        "avoid": "不放辣椒"
+      },
+      "generation": {
+        "mode": "catalog",
+        "libraryVersion": "home-20261102-v1"
+      },
+      "titles": [
+        "姜香蒸肉片",
+        "蒜蓉油麦菜",
+        "姜香油麦菜"
+      ],
+      "metrics": {
+        "schemaVersion": 1,
+        "requestId": "ac3c7fd8-d8bc-4ece-b29d-921faa7c7f1d",
+        "attemptId": "71eff37c-c73d-4c8b-bbda-7e2daea6d0f5",
+        "startedAt": "2026-11-02T11:27:21.420Z",
+        "timingsMs": {
+          "requestSave": 1.83,
+          "threadStart": 77.98,
+          "firstEvent": 80.38,
+          "firstText": 2351.67,
+          "modelRequest": 2401,
+          "parse": 0.11,
+          "generator": 2479.57,
+          "resultSave": 0.75,
+          "backend": 2484.89
+        },
+        "configuredModel": "gpt-6-luna",
+        "reportedModel": "gpt-6-luna",
+        "reasoningEffort": "none",
+        "promptVersion": "catalog-selector-v1",
+        "generationMode": "catalog",
+        "transport": "app-server",
+        "usage": {
+          "inputTokens": 5438,
+          "cachedInputTokens": 0,
+          "outputTokens": 23,
+          "reasoningTokens": 0
+        },
+        "resultBytes": 27,
+        "finishedAt": "2026-11-02T11:27:23.902Z",
+        "browser": {
+          "attemptId": "71eff37c-c73d-4c8b-bbda-7e2daea6d0f5",
+          "recordedAt": "2026-11-02T11:27:25.493Z",
+          "totalMs": 4075.2,
+          "acceptedMs": 57.5,
+          "afterAcceptedMs": 4017.7,
+          "renderMs": 1115.9
+        }
+      },
+      "passed": true
+    },
+    {
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "232c9af3-c190-42c3-bf1f-8c317ca472e4",
+        "createdAt": "2026-11-02T11:27:27.978Z",
+        "ingredients": [
+          "牛肉 200克",
+          "洋葱",
+          "生菜",
+          "姜蓉"
+        ],
+        "servings": 2,
+        "maxMinutes": 30,
+        "preferences": "清淡、少油",
+        "avoid": "不放辣椒"
+      },
+      "generation": {
+        "mode": "catalog",
+        "libraryVersion": "home-20261102-v1"
+      },
+      "titles": [
+        "清煮牛肉片",
+        "清炒生菜",
+        "洋葱炒牛肉"
+      ],
+      "metrics": {
+        "schemaVersion": 1,
+        "requestId": "232c9af3-c190-42c3-bf1f-8c317ca472e4",
+        "attemptId": "0a263ba3-894d-4e89-9a2e-fabf76b70237",
+        "startedAt": "2026-11-02T11:27:27.980Z",
+        "timingsMs": {
+          "requestSave": 0.72,
+          "threadStart": 102.27,
+          "firstEvent": 104.97,
+          "firstText": 2566.49,
+          "modelRequest": 2602.47,
+          "parse": 0.1,
+          "generator": 2705.41,
+          "resultSave": 5.48,
+          "backend": 2713.98
+        },
+        "configuredModel": "gpt-6-luna",
+        "reportedModel": "gpt-6-luna",
+        "reasoningEffort": "none",
+        "promptVersion": "catalog-selector-v1",
+        "generationMode": "catalog",
+        "transport": "app-server",
+        "usage": {
+          "inputTokens": 5462,
+          "cachedInputTokens": 0,
+          "outputTokens": 23,
+          "reasoningTokens": 0
+        },
+        "resultBytes": 27,
+        "finishedAt": "2026-11-02T11:27:30.692Z",
+        "browser": {
+          "attemptId": "0a263ba3-894d-4e89-9a2e-fabf76b70237",
+          "recordedAt": "2026-11-02T11:27:31.125Z",
+          "totalMs": 3147.3,
+          "acceptedMs": 58.3,
+          "afterAcceptedMs": 3089,
+          "renderMs": 217.6
+        }
+      },
+      "passed": true
+    }
+  ],
+  "checks": {
+    "freshRequests": true,
+    "aiSelectionPerTrial": true,
+    "responseCacheUsed": false,
+    "fullRecipesVisible": true,
+    "under5000ms": true
+  },
+  "limitations": "三个本机浏览器前台样本，不是延迟SLA；远程网络/排队可能超5秒。菜谱未做实际烹饪或手机真机验收；每条原料数量是建议，已知兼容单位按输入上限约束。"
+}

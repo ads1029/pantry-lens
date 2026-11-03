@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "requestId": "a05dd6da-3f9f-4463-945d-9391bc513fb8",
+  "source": "codex",
+  "status": "completed",
+  "generatedAt": "2026-11-02T08:53:34.957776+00:00",
+  "recipes": [
+    {
+      "title": "番茄豆腐烩鸡蛋",
+      "reason": "把三样现有食材做成一锅家常烩菜，用番茄汁增加风味，少油也不寡淡。",
+      "minutes": 20,
+      "servings": 2,
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "2个，约300克",
+          "availability": "provided"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2个",
+          "availability": "provided"
+        },
+        {
+          "name": "豆腐",
+          "amount": "200克",
+          "availability": "provided"
+        },
+        {
+          "name": "食用油",
+          "amount": "1茶匙，约5毫升",
+          "availability": "staple"
+        },
+        {
+          "name": "盐",
+          "amount": "约1克，按口味调整",
+          "availability": "staple"
+        },
+        {
+          "name": "水",
+          "amount": "80毫升",
+          "availability": "staple"
+        }
+      ],
+      "steps": [
+        "番茄洗净切小块；豆腐沥水切约2厘米的小块；鸡蛋打散。",
+        "不粘锅中放入食用油，中小火加热，倒入蛋液，轻推至凝固后盛出。",
+        "原锅加入番茄和2汤匙水，中火翻炒约3分钟，至番茄软化出汁。",
+        "加入豆腐、余下的水和盐，轻推拌匀，小火煮约5分钟。倒回鸡蛋再煮1分钟，确认鸡蛋完全凝固、豆腐中心热透后盛出。"
+      ],
+      "tips": "三道推荐任选一道即可。这里的用量是建议；若番茄出水多，可少加水。用不粘锅更容易控制油量。"
+    },
+    {
+      "title": "番茄豆腐蛋花汤",
+      "reason": "同样的食材换成清爽热汤，不额外加油，步骤少，适合想吃得轻一点的一餐。",
+      "minutes": 18,
+      "servings": 2,
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "2个，约300克",
+          "availability": "provided"
+        },
+        {
+          "name": "豆腐",
+          "amount": "200克",
+          "availability": "provided"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1个",
+          "availability": "provided"
+        },
+        {
+          "name": "水",
+          "amount": "600毫升",
+          "availability": "staple"
+        },
+        {
+          "name": "盐",
+          "amount": "约1克，按口味调整",
+          "availability": "staple"
+        }
+      ],
+      "steps": [
+        "番茄洗净切小块，豆腐切小块，鸡蛋打散备用。",
+        "小锅放入番茄和水，大火煮开后转中小火，煮5分钟至番茄变软。",
+        "加入豆腐，再煮约3分钟，保持轻微沸腾并让豆腐中心热透。",
+        "将蛋液沿锅边缓慢淋入，等约10秒再轻轻搅动，继续煮至蛋花全部凝固、无生蛋液，按口味加盐。"
+      ],
+      "tips": "这道汤没有主食；若想吃成完整一餐，可另配家里已有的米饭或面食，它们未计入本菜用料或18分钟时间。"
+    },
+    {
+      "title": "番茄浇汁豆腐蒸蛋",
+      "reason": "将豆腐和蛋蒸得柔嫩，再淋上现煮番茄汁，和炒菜、汤形成三种不同做法。",
+      "minutes": 28,
+      "servings": 2,
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "2个",
+          "availability": "provided"
+        },
+        {
+          "name": "豆腐",
+          "amount": "150克，嫩豆腐口感更细",
+          "availability": "provided"
+        },
+        {
+          "name": "番茄",
+          "amount": "1个，约150克",
+          "availability": "provided"
+        },
+        {
+          "name": "温水",
+          "amount": "150毫升",
+          "availability": "staple"
+        },
+        {
+          "name": "水",
+          "amount": "约30毫升熬汁，另备蒸锅用水",
+          "availability": "staple"
+        },
+        {
+          "name": "盐",
+          "amount": "约1克，分两次使用",
+          "availability": "staple"
+        }
+      ],
+      "steps": [
+        "蒸锅加水开始烧热。豆腐沥水切小块，放入浅的耐热碗；番茄洗净切碎。",
+        "鸡蛋打散，加入150毫升温水和一半盐搅匀，撇去浮沫，倒入豆腐碗中。用耐热盘松松盖住碗，避免蒸汽滴水。",
+        "水开后把碗放入蒸锅，中小火蒸约12–15分钟；蒸到中心完全凝固、轻晃没有液态蛋液。若碗较深或尚未凝固，继续蒸至熟透。",
+        "蒸蛋时另取小锅，放入番茄碎、约30毫升水及剩余盐，小火煮约5分钟成稠汁。",
+        "用隔热工具取出蒸蛋，小心热汽，淋上番茄汁即可。"
+      ],
+      "tips": "优先使用浅碗，减少中心不熟的情况；蒸制时间随碗深与火力变化，以完全凝固为准，不为赶时间提前出锅。"
+    }
+  ]
+}

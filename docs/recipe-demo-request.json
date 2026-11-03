@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "requestId": "a05dd6da-3f9f-4463-945d-9391bc513fb8",
+  "createdAt": "2026-11-02T08:52:35.817Z",
+  "ingredients": [
+    "番茄",
+    "鸡蛋",
+    "豆腐"
+  ],
+  "servings": 2,
+  "maxMinutes": 30,
+  "preferences": "清淡、少油",
+  "avoid": "不放辣椒"
+}
