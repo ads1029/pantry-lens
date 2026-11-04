@@ -52,6 +52,62 @@ $('#ingredient-clear').onclick = () => applyIngredients('');
 $('#recipe-ingredients').addEventListener('input', renderIngredientPicker);
 renderIngredientPicker();
 
+// Quick preferences share the existing request field; custom wording stays optional.
+const preferenceGroups = [['中式', '西式'], ['少油'], ['素食', '纯素']];
+const preferenceOptions = preferenceGroups.flat();
+const selectedPreferences = new Set();
+const customPreference = $('#recipe-preferences');
+const preferenceLabel = document.querySelector('label[for="recipe-preferences"]');
+const preferenceChoices = document.createElement('div');
+preferenceChoices.className = 'ingredient-choices preference-choices';
+preferenceChoices.setAttribute('role', 'group');
+preferenceChoices.setAttribute('aria-label', '常用偏好');
+preferenceChoices.innerHTML = preferenceOptions.map(name => `<button type="button" class="ingredient-choice" data-preference="${name}" aria-pressed="false">${name}</button>`).join('');
+const otherPreferences = document.createElement('details');
+otherPreferences.className = 'other-preferences';
+otherPreferences.innerHTML = '<summary>其他偏好</summary>';
+preferenceLabel.before(preferenceChoices, otherPreferences);
+preferenceLabel.classList.add('visually-hidden');
+preferenceLabel.textContent = '其他偏好';
+customPreference.placeholder = '例如：不要姜';
+otherPreferences.append(preferenceLabel, customPreference);
+
+function renderPreferences() {
+  for (const button of preferenceChoices.querySelectorAll('[data-preference]')) {
+    button.setAttribute('aria-pressed', String(selectedPreferences.has(button.dataset.preference)));
+  }
+}
+function choosePreference(name) {
+  for (const option of preferenceGroups.find(group => group.includes(name))) selectedPreferences.delete(option);
+  selectedPreferences.add(name);
+}
+preferenceChoices.onclick = event => {
+  const button = event.target.closest('[data-preference]');
+  if (!button) return;
+  const name = button.dataset.preference;
+  if (selectedPreferences.has(name)) selectedPreferences.delete(name);
+  else choosePreference(name);
+  renderPreferences();
+};
+function restorePreferences(value) {
+  selectedPreferences.clear();
+  const custom = [], presets = new Set();
+  for (const clause of String(value ?? '').split(/[、,，;；\n]+/).map(part => part.trim()).filter(Boolean)) {
+    const tokens = clause.split(/\s+/);
+    if (tokens.every(token => preferenceOptions.includes(token))) tokens.forEach(token => presets.add(token));
+    else custom.push(clause);
+  }
+  // Restore legacy requests with both cuisines as unrestricted, and both diets as vegan.
+  if (presets.has('中式') && presets.has('西式')) { presets.delete('中式'); presets.delete('西式'); }
+  if (presets.has('纯素')) presets.delete('素食');
+  for (const name of presets) selectedPreferences.add(name);
+  customPreference.value = custom.join('、');
+  renderPreferences();
+}
+function currentPreferences() {
+  return [...selectedPreferences, customPreference.value.trim()].filter(Boolean).join('、');
+}
+
 function showView(recipes) {
   $('#recipes-view').hidden = !recipes;
   $('#pantry-view').hidden = recipes;
@@ -170,7 +226,7 @@ $('#recipe-form').onsubmit = async event => {
   measurement = {start: performance.now(), requestId: null, acceptedMs: null, reported: false};
   clearTimeout(timer);
   try {
-    const input = recipeInput({ingredients: $('#recipe-ingredients').value, servings: Number($('#recipe-servings').value), maxMinutes: Number($('#recipe-minutes').value), preferences: $('#recipe-preferences').value, avoid: $('#recipe-avoid').value});
+    const input = recipeInput({ingredients: $('#recipe-ingredients').value, servings: Number($('#recipe-servings').value), maxMinutes: Number($('#recipe-minutes').value), preferences: currentPreferences(), avoid: $('#recipe-avoid').value});
     if (staticMode) {
       const request = {...input, schemaVersion: 1, requestId: crypto.randomUUID(), createdAt: new Date().toISOString()};
       const result = localMatcher(request);
@@ -235,7 +291,7 @@ if (staticMode && saved) {
     renderIngredientPicker();
     $('#recipe-servings').value = String(request.servings);
     $('#recipe-minutes').value = String(request.maxMinutes);
-    $('#recipe-preferences').value = request.preferences;
+    restorePreferences(request.preferences);
     $('#recipe-avoid').value = request.avoid;
     renderResult(checked);
   } catch { $('#recipe-form-error').textContent = '上次推荐未能恢复，请重新选择食材。'; $('#recipe-form-error').hidden = false; }
@@ -251,7 +307,7 @@ if (!staticMode && validRequestId(saved)) {
     renderIngredientPicker();
     $('#recipe-servings').value = String(request.servings);
     $('#recipe-minutes').value = String(request.maxMinutes);
-    $('#recipe-preferences').value = request.preferences;
+    restorePreferences(request.preferences);
     $('#recipe-avoid').value = request.avoid;
     deadline = Date.now() + 10 * 60 * 1000;
     if (body.status === 'ready') renderResult(validateRecipeResult(body.result, request), body.metrics);
