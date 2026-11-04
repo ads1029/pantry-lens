@@ -176,12 +176,16 @@ function renderResult(result, metrics) {
     return;
   }
   $('#recipe-badge').textContent = staticMode ? '本地匹配 · 家常菜谱库' : result.generation?.mode === 'catalog' ? 'AI 挑选 · 家常菜谱库' : 'AI 现场生成 · 3 道';
-  $('#recipe-state').textContent = `${active.servings} 人份 · 三道备选`;
-  $('#recipe-results').innerHTML = result.recipes.map(recipe => `<article class="recipe-card">
+  $('#recipe-state').textContent = `${active.servings} 人份`;
+  $('#recipe-results').innerHTML = result.recipes.map(recipe => {
+    const tips = recipe.tips.replace(/三道菜是备选方案，任选一道即可。|三道为备选，每次任选一道，|任选一道作为一餐搭配。/g, '').trim();
+    return `<article class="recipe-card">
     <div class="recipe-card-top"><h3>${escape(recipe.title)}</h3><span>${recipe.minutes} 分钟</span></div>
     <ul class="recipe-ingredients">${recipe.ingredients.map(item => `<li><span>${escape(item.name)} <small>${escape(item.amount)}</small></span>${item.availability === 'extra' ? '<em class="ingredient-extra">另备</em>' : `<em class="visually-hidden">${availability[item.availability]}</em>`}</li>`).join('')}</ul>
-    <details><summary>做法</summary><ol class="recipe-steps">${recipe.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol><p class="recipe-tip">${escape(recipe.tips)}</p></details>
-  </article>`).join('');
+    <ol class="recipe-steps">${recipe.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>
+    ${tips ? `<p class="recipe-tip">${escape(tips)}</p>` : ''}
+  </article>`;
+  }).join('');
   showMetrics(metrics);
   const captured = measurement, id = active.requestId;
   if (captured?.requestId === id && metrics?.attemptId && !captured.reported) {
