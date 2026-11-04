@@ -178,7 +178,12 @@ function renderResult(result, metrics) {
   $('#recipe-badge').textContent = staticMode ? '本地匹配 · 家常菜谱库' : result.generation?.mode === 'catalog' ? 'AI 挑选 · 家常菜谱库' : 'AI 现场生成 · 3 道';
   $('#recipe-state').textContent = `${active.servings} 人份`;
   $('#recipe-results').innerHTML = result.recipes.map(recipe => {
-    const tips = recipe.tips.replace(/三道菜是备选方案，任选一道即可。|三道为备选，每次任选一道，|任选一道作为一餐搭配。/g, '').trim();
+    // Strip known shared boilerplate, not ingredient-specific cautions or cooking steps.
+    const tips = recipe.tips
+      .replace(/三道菜是备选方案，任选一道即可。|三道为备选，每次任选一道，|任选一道作为一餐搭配。|两人份建议量；|用量按单道计算。/g, '')
+      .replace(/优先瘦肉、橄榄油或菜籽油，盐可减量；核对过敏原、包装配料和实际熟度。|不是营养处方，时间为估计。|请核对忌口、包装配料和交叉接触。/g, '')
+      .replace(/按全熟口感制作；肉片最厚处中心达到75℃。/g, '')
+      .trim();
     return `<article class="recipe-card">
     <div class="recipe-card-top"><h3>${escape(recipe.title)}</h3><span>${recipe.minutes} 分钟</span></div>
     <ul class="recipe-ingredients">${recipe.ingredients.map(item => `<li><span>${escape(item.name)} <small>${escape(item.amount)}</small></span>${item.availability === 'extra' ? '<em class="ingredient-extra">另备</em>' : `<em class="visually-hidden">${availability[item.availability]}</em>`}</li>`).join('')}</ul>
